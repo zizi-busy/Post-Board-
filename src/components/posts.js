@@ -21,7 +21,7 @@ const Posts =(props) =>{
     
     })
           return(
-        <div className = "post-list">
+        <div className = "posts-list">
             { postsList }
         </div>
     )

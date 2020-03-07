@@ -8,6 +8,7 @@ class AddPost extends Component {
     }
 
     handleChange = (e) => {
+        e.preventDefault()
         this.setState({
             [e.target.id]:e.target.value //id from form-input in html
         });
@@ -21,18 +22,37 @@ class AddPost extends Component {
    } 
     render (){
         return (
-            <div>
+            <div class = "post-container">
+           
                 <form onSubmit = {this.handleSubmit}>
-                    <label htmlFor="title">Title:</label>
-                    <input type="text" id="title" onChange={this.handleChange}/>
-                    <label htmlFor="category">Category:</label>
-                    <input type="text" id="category" onChange={this.handleChange}/>
-                    <label htmlFor="newPost">Write New Post:</label>
-                    <textarea value={this.state.value} type="text" id="newPost" onChange={this.handleChange} cols={40} rows={10} />
-                    <button>Submit</button>
+                    <h1>New Post</h1>
+                <div class="form-inner">
+        
+                    <div class="input-holder">
+                        <span class="label"> Title:</span>
+                         <input class = "input-text" type="text" id="title" onChange={this.handleChange}/>
+                         
+                    
+                     </div>
+        
+                    <div class="input-holder">
+                        <span class="label"> Category:</span>
+                        <input class="input-text" type="text" id="category"onChange={this.handleChange}/>
+                     
+                    </div>  
+                        
+                    <div class = "input-holder">
+                        <span class="label"> Write new post:</span>  
+                        <textarea class="input-text" value={this.state.value} type="text" id="newPost" onChange={this.handleChange}></textarea> 
+                                 
+                    </div>      
+                            <button class="postBtn">Post</button>
+                            <button>Cancel</button>
+                </div> 
 
                 </form>
             </div>
+        
         )
     }
 }

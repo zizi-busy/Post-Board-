@@ -32,16 +32,13 @@ class App extends Component {
     } 
       render () { 
           return (
-          <div className ="App">
+          <div className ="posts-board">
           
             <h1>Posts board</h1>
             <h2>Posts of the day!</h2>
             <Posts deletePost = {this.deletePost} posts ={this.state.posts} />
             <AddPost addPost = {this.addPost} />
-           
-            
-
-           
+        
           </div>
       );
    }
