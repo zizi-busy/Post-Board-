@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Posts from './components/posts';
+import AddPost from './components/AddPost';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+//CONTAINER COMPONENT
+class App extends Component { 
+  
+      state = {
+        posts : [
+           { title:'Day at the office', category: 'Work', newPost: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam' ,id:1},
+           { title:'Sushi', category: 'Food', newPost: '1cup of rice, 2dkg fish',id:2 },
+       
+       ]
+    } 
+    
+    addPost = (post) => {
+       post.id = Math.random();
+       let posts = [...this.state.posts, post]; //copy of array of posts from abbove a
+       this.setState({
+           posts: posts
+       });
+    }
+
+    deletePost =(id) => {//takes id of post as parametar
+        let posts = this.state.posts.filter(post =>{
+            return post.id !== id
+        }) ;
+        this.setState ({
+            posts:posts
+        })
+    } 
+      render () { 
+          return (
+          <div className ="App">
+          
+            <h1>Posts board</h1>
+            <h2>Posts of the day!</h2>
+            <Posts deletePost = {this.deletePost} posts ={this.state.posts} />
+            <AddPost addPost = {this.addPost} />
+           
+            
+
+           
+          </div>
+      );
+   }
 }
 
 export default App;
