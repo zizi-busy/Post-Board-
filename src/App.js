@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Posts from './components/posts';
+import PostBoard from './components/PostBoard';
 import AddPost from './components/AddPost';
 
 
@@ -36,7 +36,7 @@ class App extends Component {
           
             <h1>Posts board</h1>
             <h2>Posts of the day!</h2>
-            <Posts deletePost = {this.deletePost} posts ={this.state.posts} />
+            <PostBoard deletePost = {this.deletePost} posts ={this.state.posts} />
             <AddPost addPost = {this.addPost} />
         
           </div>

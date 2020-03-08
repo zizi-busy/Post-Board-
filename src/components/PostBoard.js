@@ -1,6 +1,6 @@
 import React from 'react';
 //UI (FUNCTIONAL) COMPONENTS
-const Posts =(props) =>{
+const PostBoard =(props) =>{
     
     const {posts, deletePost } = props; 
 
@@ -28,4 +28,4 @@ const Posts =(props) =>{
 }
 
 
-export default Posts
+export default PostBoard
